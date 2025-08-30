@@ -1,0 +1,14 @@
+<div class="verificacao-container">
+    <form class="verificacao-form" action="/action/verify-number" method="post">
+        <h2>Verificação de Número</h2>
+        <p>Enviamos um código de verificação para o seu número de telefone. Por favor, insira o código abaixo.</p>
+        
+        <input type="hidden" name="number" value="<%= typeof number !== 'undefined' ? number : '' %>">
+
+        <div class="form-group">
+            <label for="code">Código de Verificação</label>
+            <input type="text" id="code" name="code" required>
+        </div>
+        <button type="submit" class="verificacao-button btn">Verificar</button>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+<!-- page de pagamento pix -->
+
+<div class="pix-payment-container">
+    <div class="pix-payment-box">
+        <h2>Pague com PIX</h2>
+        <p>Para finalizar sua compra, escaneie o QR Code abaixo ou copie o código PIX.</p>
+
+        <div class="qr-code-container">
+            <img src="<%= qrCodeUrl %>" alt="PIX QR Code">
+        </div>
+
+        <div class="pix-code-container">
+            <label for="pix-code">Código PIX</label>
+            <div class="pix-code-input">
+                <input type="text" id="pix-code" value="<%= pixCode %>" readonly>
+                <button class="copy-button btn">Copiar</button>
+            </div>
+        </div>
+
+        <div class="payment-instructions">
+            <p><strong>Instruções:</strong></p>
+            <ol>
+                <li>Abra o aplicativo do seu banco e escolha a opção PIX.</li>
+                <li>Selecione "Pagar com QR Code" e escaneie a imagem acima.</li>
+                <li>Ou, escolha "PIX Copia e Cola" e cole o código acima.</li>
+                <li>Confirme o pagamento e aguarde a confirmação.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.copy-button').addEventListener('click', () => {
+        const pixCodeInput = document.getElementById('pix-code');
+        pixCodeInput.select();
+        document.execCommand('copy');
+        alert('Código PIX copiado!');
+    });
+</script>

@@ -1,0 +1,119 @@
+.products__carousel {
+    position: relative;
+    width: 95%;
+    max-width: 1500px;
+    margin: 0 auto;
+    overflow: visible;
+    box-sizing: border-box; 
+}
+
+.products__grid {
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px 5px 0px;
+}
+
+.products__grid::-webkit-scrollbar {
+    display: none;
+}
+
+.products__grid-container {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s ease-out;
+}
+
+.products__carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    border: 1px solid #eee;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.products__carousel-btn--prev {
+    left: 0;
+}
+
+.products__carousel-btn--next {
+    right: 0;
+}
+
+.products__carousel-btn .material-icons {
+    color: var(--primary-color);
+    font-size: 32px;
+}
+
+.point-navigator {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.point-navigator button {
+    background-color: #ddd;
+    border: none;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    outline: none;
+}
+
+.point-navigator button:hover,
+.point-navigator button:focus {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.point-navigator button.active {
+    background-color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+
+
+
+
+.product-card {
+    flex-shrink: 0;
+    width: calc((100% / var(--cards-per-view)) - var(--gap-between-cards));
+}
+
+.products__carousel {
+    --cards-per-view: 3.5;
+    --gap-between-cards: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .products__carousel {
+        --cards-per-view: 3.3;
+    }
+}
+
+@media (max-width: 992px) {
+    .products__carousel {
+        --cards-per-view: 2.7;
+    }
+}
+
+@media (max-width: 768px) {
+    .products__carousel {
+        --cards-per-view: 2.4;
+    }
+}

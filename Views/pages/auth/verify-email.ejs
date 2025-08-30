@@ -1,0 +1,15 @@
+
+<div class="verificacao-container">
+    <form class="verificacao-form" action="/action/verify-email" method="post">
+        <h2>Verificação do email</h2>
+        <p>Enviamos um código de verificação para o seu email. Por favor, insira o código abaixo.</p>
+        
+        <input type="hidden" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>">
+
+        <div class="form-group">
+            <label for="code">Código de Verificação</label>
+            <input type="text" id="code" name="code" required>
+        </div>
+        <button type="submit" class="verificacao-button btn">Verificar</button>
+    </form>
+</div>

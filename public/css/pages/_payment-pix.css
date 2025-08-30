@@ -1,0 +1,90 @@
+.pix-payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f4f4f4;
+}
+
+.pix-payment-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.pix-payment-box h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.pix-payment-box p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.qr-code-container {
+    margin-bottom: 2rem;
+}
+
+.qr-code-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.pix-code-container {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.pix-code-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.pix-code-input {
+    display: flex;
+}
+
+.pix-code-input input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    background-color: #f9f9f9;
+}
+
+.copy-button {
+    padding: 0.75rem 1rem;
+    border: 1px solid #007bff;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-button:hover {
+    background-color: #0056b3;
+}
+
+.payment-instructions {
+    text-align: left;
+    color: #555;
+}
+
+.payment-instructions ol {
+    padding-left: 1.5rem;
+}
+
+.payment-instructions li {
+    margin-bottom: 0.5rem;
+}

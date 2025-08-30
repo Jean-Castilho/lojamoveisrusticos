@@ -1,0 +1,79 @@
+<div class="login-container">
+    <form class="login-form" action="/action/login" method="post">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="login-button btn">Entrar</button>
+    </form>
+    <p class="register-link">Não tem uma conta? <a href="/register">Cadastre-se aqui.</a></p>
+</div>
+
+<div id="popup-message" class="popup" style="display: none;">
+    <p id="popup-text"></p>
+    <button id="popup-close-btn">Fechar</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.login-form');
+        const button = form.querySelector('.login-button');
+        const popup = document.getElementById('popup-message');
+        const popupText = document.getElementById('popup-text');
+        const popupCloseBtn = document.getElementById('popup-close-btn');
+
+        const showPopup = (message) => {
+            popupText.textContent = message;
+            popup.style.display = 'block';
+        };
+
+        const hidePopup = () => {
+            popup.style.display = 'none';
+        };
+
+        popupCloseBtn.addEventListener('click', hidePopup);
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            button.classList.add('animatwait');
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                button.classList.remove('animatwait');
+
+                if (response.ok) {
+                    showPopup(result.message);
+                    // Hide the popup and redirect after a short delay
+                    setTimeout(() => {
+                        hidePopup();
+                        window.location.href = '/profile'; // Redirect to profile page after login
+                    }, 2000); // 2 seconds delay
+                } else {
+                    showPopup(result.message);
+                }
+            } catch (error) {
+                console.error('Erro ao enviar formulário:', error);
+                button.classList.remove('animatwait');
+                showPopup('Ocorreu um erro ao tentar fazer login. Tente novamente.');
+            }
+        });
+    });
+</script>

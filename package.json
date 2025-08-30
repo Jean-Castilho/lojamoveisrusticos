@@ -1,0 +1,25 @@
+{
+  "name": "lojamoveisrusticos",
+  "version": "1.0.0",
+  "description": "venda de moveis domesticos",
+  "keywords": [
+    "y"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "not"
+  },
+  "license": "ISC",
+  "author": "Jean-Castilho",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2"
+  }
+}

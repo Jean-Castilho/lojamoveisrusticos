@@ -1,0 +1,10 @@
+:root {
+    --primary-color: #6f4e37;
+    --secondary-color: #a0522d;
+    --accent-color: #deb887;
+    --light-gray: #f5f5f5;
+    --dark-gray: #333;
+    --white: #ffffff;
+    --danger-color: #e74c3c; /* Red for remove/danger actions */
+    --success-color: #28a745; /* Green for success/checkout actions */
+}
