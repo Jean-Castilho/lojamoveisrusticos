@@ -2,58 +2,69 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    flex-direction: column;
+    padding: var(--spacing-xl) 0;
+    min-height: 80vh; /* Garante que o container ocupe espaço vertical suficiente */
 }
 
 .cadastro-form {
-    background-color: var(--white);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 1.2px 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: var(--surface-color);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     width: 100%;
-    max-width: 500px; /* Increased width */
+    max-width: 500px;
 }
 
 .cadastro-form h2 {
-    font-family: 'Lora', serif;
+    font-family: var(--font-family-heading);
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-xl);
     color: var(--primary-color);
+    font-size: var(--font-size-h2);
 }
 
+/* Estilos de Grupo de Formulário - consistentes com outros formulários */
 .form-group {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
 }
 
 .form-group input {
     width: 100%;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s ease;
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-inactive);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-md);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .form-group input:focus {
-    border-color: var(--primary-color);
     outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: var(--box-shadow);
 }
 
 .cadastro-button {
     width: 100%;
-    padding: 1rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     background-color: var(--secondary-color);
-    color: var(--white);
+    color: var(--surface-color);
     border: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--transition-speed);
+    font-size: var(--font-size-lg);
+    text-transform: uppercase;
+    margin-top: var(--spacing-lg); /* Adiciona margem superior para consistência */
 }
 
 .cadastro-button:hover {

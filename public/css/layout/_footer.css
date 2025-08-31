@@ -1,21 +1,21 @@
 /* Footer */
 footer {
-    background-color: var(--dark-gray);
-    color: var(--light-gray);
-    padding: 2rem 0;
+    background-color: var(--text-color); /* Usando a cor de texto escura como fundo */
+    color: var(--text-color-light);  /* Usando a cor de texto clara */
+    padding: var(--spacing-xl) 0;
     text-align: center;
 }
 
 .footer-content p {
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
 }
 
 .social-links a {
-    color: var(--light-gray);
-    margin: 0 0.5rem;
+    color: var(--text-color-light);
+    margin: 0 var(--spacing-sm);
     text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+    font-size: var(--font-size-xl);
+    transition: color var(--transition-speed);
 }
 
 .social-links a:hover {

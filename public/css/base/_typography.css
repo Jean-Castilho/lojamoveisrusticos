@@ -1,8 +1,38 @@
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--light-gray);
-    color: var(--dark-gray);
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-normal);
+    background-color: var(--background-light);
+    color: var(--text-color);
     line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-lg); }
+h5 { font-size: var(--font-size-md); }
+h6 { font-size: var(--font-size-sm); }
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
 }
 
 .container {

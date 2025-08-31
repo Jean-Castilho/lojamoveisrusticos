@@ -45,13 +45,10 @@ export const getLogout = (req, res, next) => {
     });
 };
 
-
-
-
 export const sendEmailCodeotp = async (email, code) => {
     // Aqui você pode integrar com um serviço de email para enviar o código
 
-    const response = await fetch(`${process.env.API_URL}/public/${endpoit}`, {
+    const response = await fetch(`${process.env.API_URL}/public/}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

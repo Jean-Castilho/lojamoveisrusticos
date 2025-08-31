@@ -1,66 +1,49 @@
-/* Products Section */
-.products {
-    padding: 1rem 0;
-    background-color: #fdfdfd;
+/* Estilos de Seção Genéricos */
+.section {
+    padding: var(--spacing-xxl) 0;
 }
 
-.products .section-title {
+.section--light {
+    background-color: var(--surface-color);
+}
+
+.section--gray {
+    background-color: var(--background-light);
+}
+
+.section-title {
     text-align: center;
-    font-family: 'Lora', serif;
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h1);
+    margin-bottom: var(--spacing-xl);
     color: var(--primary-color);
 }
 
-/* About Us Section */
-.about-us {
-    padding: 4rem 0;
-    background-color: var(--light-gray);
-    text-align: center;
-}
-
-.about-us .section-title {
-    margin-bottom: 2rem;
-}
-
+/* Específicos da Seção Sobre Nós */
 .about-us__content {
-    max-width: 800px;
+    max-width: 800px; /* Pode se tornar uma variável --container-md */
     margin: 0 auto;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--dark-gray);
-}
-
-.about-us__content p {
-    margin-bottom: 1.5rem;
-}
-
-/* Testimonials Section */
-.testimonials {
-    padding: 4rem 0;
-    background-color: var(--white);
     text-align: center;
+    font-size: var(--font-size-lg);
+    line-height: 1.7;
 }
 
-.testimonials .section-title {
-    margin-bottom: 2rem;
-}
-
+/* Específicos da Seção Depoimentos */
 .testimonial-carousel {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: var(--spacing-xl);
 }
 
 .testimonial-item {
-    background-color: var(--light-gray);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     max-width: 350px;
     text-align: left;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-speed);
 }
 
 .testimonial-item:hover {
@@ -68,27 +51,27 @@
 }
 
 .testimonial-text {
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     line-height: 1.6;
-    color: var(--dark-gray);
-    margin-bottom: 1rem;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
     font-style: italic;
 }
 
 .testimonial-author {
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     color: var(--primary-color);
-    font-size: 1rem;
+    font-size: var(--font-size-md);
 }
 
-/* Responsive adjustments for sections */
-@media (max-width: 768px) {
-    .about-us, .testimonials {
-        padding: 3rem 0;
+/* Ajustes Responsivos */
+@media (max-width: var(--breakpoint-md)) {
+    .section {
+        padding: var(--spacing-xl) 0;
     }
 
     .about-us__content, .testimonial-item {
-        padding: 1.5rem;
+        padding: var(--spacing-lg);
     }
 
     .testimonial-carousel {

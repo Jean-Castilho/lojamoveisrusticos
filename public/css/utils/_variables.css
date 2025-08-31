@@ -1,10 +1,55 @@
 :root {
-    --primary-color: #6f4e37;
-    --secondary-color: #a0522d;
-    --accent-color: #deb887;
-    --light-gray: #f5f5f5;
-    --dark-gray: #333;
-    --white: #ffffff;
-    --danger-color: #e74c3c; /* Red for remove/danger actions */
-    --success-color: #28a745; /* Green for success/checkout actions */
+    /* --- Cores --- */
+    --primary-color: #6f4e37;    /* Marrom Café */
+    --secondary-color: #a0522d;  /* Siena */
+    --accent-color: #deb887;     /* Burlywood */
+    
+    --background-light: #f5f5f5; /* Cinza Claro (Fundo) */
+    --surface-color: #ffffff;    /* Branco (Superfícies como cards) */
+
+    --text-color: #333;          /* Cor principal do texto */
+    --text-color-light: #f5f5f5; /* Cor do texto em fundos escuros */
+    
+    --danger-color: #e74c3c;      /* Vermelho para perigo/remoção */
+    --danger-color-dark: #c0392b;
+    --success-color: #28a745;    /* Verde para sucesso */
+    --success-color-dark: #218838;
+    --color-inactive: #dddddd;   /* Cinza para elementos inativos */
+
+    /* --- Tipografia --- */
+    --font-family-body: 'Georgia', 'Times New Roman', Times, serif;
+    --font-family-heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    
+    --font-size-base: 16px;
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem;     /* 16px */
+    --font-size-lg: 1.25rem;  /* 20px */
+    --font-size-h3: 1.75rem;  /* 28px */
+    --font-size-h2: 2rem;     /* 32px */
+    --font-size-h1: 2.5rem;   /* 40px */
+
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* --- Espaçamentos --- */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+    --spacing-xxl: 3rem;   /* 48px */
+
+    /* --- Bordas, Sombras e Overlays --- */
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --overlay-dark: rgba(0, 0, 0, 0.6);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    /* --- Transições --- */
+    --transition-speed: 0.3s ease;
+
+    /* --- Breakpoints --- */
+    --breakpoint-xl: 1200px;
+    --breakpoint-lg: 992px;
+    --breakpoint-md: 768px;
+    --breakpoint-sm: 480px;
 }

@@ -1,130 +1,106 @@
+/* Layout Geral do Painel Admin */
 .admin-dashboard-container {
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 1.2px 1px 2px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    max-width: 900px;
-    margin: 2rem auto;
+    padding: var(--spacing-xl);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
+    margin: var(--spacing-xl) auto;
+    max-width: 1200px;
 }
 
 .admin-dashboard-title {
-    font-family: 'Lora', serif;
+    font-family: var(--font-family-heading);
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: var(--font-size-h1);
 }
 
-.admin-dashboard-overview,
-.admin-dashboard-section,
 .admin-section-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    border: 1px solid var(--light-gray);
-    border-radius: 8px;
-    background-color: var(--white);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    background-color: var(--surface-color);
+    box-shadow: var(--box-shadow);
 }
 
-.admin-dashboard-overview h2,
-.admin-dashboard-section h2,
-.admin-section-title,
-.product-form-section h2,
-.product-list-section h2 {
-    font-family: 'Lora', serif;
+.admin-section-title {
+    font-family: var(--font-family-heading);
     color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.8rem;
-    border-bottom: 1px solid var(--light-gray);
-    padding-bottom: 0.5rem;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-h2);
+    border-bottom: 1px solid var(--color-inactive);
+    padding-bottom: var(--spacing-md);
 }
 
+/* Cards de Visão Geral */
 .overview-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
 }
 
 .card {
     background-color: var(--secondary-color);
-    color: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
+    color: var(--text-color-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
     text-align: center;
-    box-shadow: 1.2px 1px 2px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow);
 }
 
 .card h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
 }
 
 .card-value {
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
 }
 
+/* Links Rápidos */
 .quick-links {
     list-style: none;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: var(--spacing-md);
 }
 
 .quick-links li a {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    background-color: var(--light-gray);
-    border-radius: 5px;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: var(--background-light);
+    border-radius: var(--border-radius);
     text-decoration: none;
     color: var(--primary-color);
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .quick-links li a:hover {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--surface-color);
 }
 
 .quick-links li a .material-icons {
-    font-size: 1.5rem;
+    font-size: var(--font-size-xl);
 }
 
-.recent-activity p {
-    color: var(--text-color);
-}
-
-/* Product Form and List Sections */
-.product-form-section,
-.product-list-section {
-    margin-top: 2rem;
-    padding: 1rem; /* Reduced padding */
-    border: 1px solid var(--light-gray);
-    border-radius: 8px;
-    background-color: var(--white);
-    max-width: 600px; /* Added max-width */
-    margin-left: auto; /* Center the form */
-    margin-right: auto; /* Center the form */
-}
-
+/* Formulários Admin */
 .admin-form .form-group {
-    margin-bottom: 1.2rem; /* Adjusted spacing */
+    margin-bottom: var(--spacing-lg);
 }
 
 .admin-form label {
     display: block;
-    margin-bottom: 0.6rem; /* Adjusted spacing */
-    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
     color: var(--primary-color);
-    font-size: 0.95rem; /* Slightly adjusted font size */
+    font-size: var(--font-size-md);
 }
 
 .admin-form input[type="text"],
@@ -132,12 +108,14 @@
 .admin-form input[type="url"],
 .admin-form textarea {
     width: 100%;
-    padding: 0.9rem; /* Adjusted padding */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    font-size: 1rem; /* Consistent font size */
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-inactive);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-body);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+    font-size: var(--font-size-md);
+    background-color: var(--surface-color);
+    color: var(--text-color);
 }
 
 .admin-form input[type="text"]:focus,
@@ -146,148 +124,81 @@
 .admin-form textarea:focus {
     outline: none;
     border-color: var(--secondary-color);
-    box-shadow: 1.2px 1px 2px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow);
 }
 
 .admin-submit-button {
     width: 100%;
-    padding: 1rem;
+    padding: var(--spacing-md) var(--spacing-lg);
     background-color: var(--secondary-color);
-    color: var(--white);
+    color: var(--surface-color);
     border: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-bold);
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 1.5rem;
-    font-size: 1.1rem; /* Slightly larger font for buttons */
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    margin-top: var(--spacing-lg);
+    font-size: var(--font-size-lg);
 }
 
 .admin-submit-button:hover {
     background-color: var(--primary-color);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
-.admin-submit-button:active {
-    transform: translateY(0);
-}
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .admin-dashboard-container,
-    .admin-section-container { /* Apply responsive padding to all main containers */
-        padding: 1rem;
-        margin: 1rem auto;
-    }
-
-    .admin-dashboard-title,
-    .admin-section-title {
-        font-size: 2rem;
-    }
-
-    .overview-cards,
-    .quick-links {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Admin Content Grid for layout */
-.admin-content-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Default to single column on small screens */
-    gap: 2rem; /* Spacing between sections */
-}
-
-@media (min-width: 992px) { /* Two columns on larger screens */
-    .admin-content-grid {
-        grid-template-columns: 1fr 2fr; /* Form on left, list on right */
-    }
-}
-
-/* Product Table Styling */
+/* Tabela Admin */
 .product-table-responsive {
-    overflow-x: auto; /* Enable horizontal scrolling on small screens */
-    margin-top: 1.5rem; /* Ensure consistent top margin */
-    border-radius: 8px; /* Apply border-radius to the responsive container */
-    box-shadow: 1.2px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for the whole table */
-    backdrop-filter: blur(5px);
+    overflow-x: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 .product-table {
     width: 100%;
-    border-collapse: separate; /* Use separate to allow border-radius on cells */
-    border-spacing: 0; /* Remove default spacing */
-    background-color: var(--white); /* Ensure background is white */
+    border-collapse: collapse;
+    background-color: var(--surface-color);
 }
 
 .product-table th,
 .product-table td {
-    padding: 1rem 1.2rem; /* Increased padding for better spacing */
-    border-bottom: 1px solid #eee; /* Lighter border for rows */
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--color-inactive);
     text-align: left;
 }
 
 .product-table th {
     background-color: var(--primary-color);
-    color: var(--white);
-    font-weight: bold;
+    color: var(--text-color-light);
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
-    font-size: 0.85rem; /* Slightly smaller font for header */
-    position: sticky; /* Make header sticky for scrolling tables */
-    top: 0;
-    z-index: 1; /* Ensure header stays above content */
+    font-size: var(--font-size-sm);
 }
-
-/* Rounded corners for table header */
-.product-table thead tr:first-child th:first-child {
-    border-top-left-radius: 8px;
-}
-
-.product-table thead tr:first-child th:last-child {
-    border-top-right-radius: 8px;
-}
-
-.product-table tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 8px;
-}
-
-.product-table tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 8px;
-}
-
 
 .product-table tbody tr:nth-child(even) {
-    background-color: var(--light-gray); /* Zebra striping */
+    background-color: var(--background-light);
 }
 
 .product-table tbody tr:hover {
-    background-color: rgba(245, 245, 245, 0.8); /* Lighter hover effect */
-    box-shadow: 1.2px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
-    backdrop-filter: blur(5px);
-    transform: translateY(-1px); /* Slight lift effect */
-    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
-/* Action Buttons in Table */
+/* Botões de Ação na Tabela */
 .action-btn {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem; /* Slightly smaller icon size */
-    padding: 0.4rem; /* Adjusted padding */
-    border-radius: 50%; /* Make them circular */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin: 0 0.2rem; /* Add margin between buttons */
-    display: inline-flex; /* Align icon and button properly */
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    margin: 0 var(--spacing-sm);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
 .action-btn .material-icons {
-    font-size: 1.1rem;
-    vertical-align: middle;
+    font-size: var(--font-size-lg);
 }
 
 .edit-btn {
@@ -296,14 +207,37 @@
 
 .edit-btn:hover {
     background-color: var(--secondary-color);
-    color: var(--white);
+    color: var(--surface-color);
 }
 
 .delete-btn {
-    color: var(--error-color); /* Assuming an error color variable exists */
+    color: var(--danger-color);
 }
 
 .delete-btn:hover {
-    background-color: var(--error-color);
-    color: var(--white);
+    background-color: var(--danger-color);
+    color: var(--surface-color);
+}
+
+/* Ajustes Responsivos */
+@media (max-width: var(--breakpoint-lg)) {
+    .admin-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: var(--breakpoint-md)) {
+    .admin-dashboard-container {
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg) auto;
+    }
+
+    .admin-dashboard-title {
+        font-size: var(--font-size-h2);
+    }
+
+    .overview-cards,
+    .quick-links {
+        grid-template-columns: 1fr;
+    }
 }

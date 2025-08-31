@@ -1,24 +1,40 @@
 .hero--error {
-    background-color: #f8f9fa;
-    text-align: center;
-    padding: 100px 0;
+    background-color: var(--background-light);
+    height: 80vh; /* Faz a seção ocupar boa parte da tela */
+    color: var(--text-color); /* Texto escuro em fundo claro */
+}
+
+/* O pseudo-elemento ::before do .hero padrão cria um fundo escuro. */
+/* Precisamos desativá-lo para a página de erro. */
+.hero--error::before {
+    background: none;
 }
 
 .hero--error .hero__title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: var(--font-size-h1);
+    color: var(--primary-color);
+    text-shadow: none; /* Remove a sombra, desnecessária em fundo claro */
 }
 
 .hero--error .hero__subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xl);
+    text-shadow: none;
 }
 
+/* Estiliza o botão como um botão de ação primário */
 .hero--error .hero__button {
-    background-color: #343a40;
-    color: #fff;
-    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    padding: var(--spacing-md) var(--spacing-xl);
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--box-shadow);
+}
+
+.hero--error .hero__button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
