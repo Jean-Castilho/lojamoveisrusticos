@@ -51,7 +51,7 @@
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch(form.action, {
+                const response = await fetch('/api/auth/send-otp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -1,6 +1,6 @@
 
 <div class="verificacao-container">
-    <form class="verificacao-form" action="/action/verify-email" method="post">
+    <form class="verificacao-form" action="/api/auth/verify-and-register" method="post">
         <h2>Verificação do email</h2>
         <p>Enviamos um código de verificação para o seu email. Por favor, insira o código abaixo.</p>
         
@@ -13,3 +13,60 @@
         <button type="submit" class="verificacao-button btn">Verificar</button>
     </form>
 </div>
+
+<div id="popup-message" class="popup" style="display: none;">
+    <p id="popup-text"></p>
+    <button id="popup-close-btn">Fechar</button>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('.verificacao-form');
+        const popup = document.getElementById('popup-message');
+        const popupText = document.getElementById('popup-text');
+        const popupCloseBtn = document.getElementById('popup-close-btn');
+
+        const showPopup = (message) => {
+            popupText.textContent = message;
+            popup.style.display = 'block';
+        };
+
+        const hidePopup = () => {
+            popup.style.display = 'none';
+        };
+
+        popupCloseBtn.addEventListener('click', hidePopup);
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    showPopup(result.message);
+                    setTimeout(() => {
+                        hidePopup();
+                        window.location.href = '/login'; // Redirect to login on success
+                    }, 2000);
+                } else {
+                    showPopup(result.message);
+                }
+            } catch (error) {
+                console.error('Erro ao verificar código:', error);
+                showPopup('Ocorreu um erro ao tentar verificar o código. Tente novamente.');
+            }
+        });
+    });
+</script>

@@ -1,9 +1,10 @@
 <header>
     <div class="container header-content">
         <div class="logo">
-            <h1><a href="/" style="text-decoration: none; color: var(--primary-color);">Móveis Rústicos</a></h1>
+            <!-- Use a more descriptive title for the link for accessibility -->
+            <h1><a href="/" style="text-decoration: none; color: var(--primary-color);" aria-label="Página Inicial - Móveis Rústicos">Móveis Rústicos</a></h1>
         </div>
-        <nav class="main-nav">
+        <nav class="main-nav" aria-label="Navegação Principal">
             <ul>
                 <li><a href="/">Início</a></li>
                 <li><a href="/produtos">Produtos</a></li>
@@ -12,15 +13,16 @@
             </ul>
         </nav>
         <div class="header-icons">
-            <a href="#" class="icon-link"><span class="material-icons">search</span></a>
+            <!-- Add aria-label for icon-only links for accessibility -->
+            <a href="#" class="icon-link" aria-label="Pesquisar"><span class="material-icons">search</span></a>
             <% if (session && session.user) { %>
-                <a href="/profile" class="icon-link"><span class="material-icons">person</span></a>
-                <a href="/logout" class="icon-link"><span class="material-icons">logout</span></a>
+                <a href="/profile" class="icon-link" aria-label="Perfil do Usuário"><span class="material-icons">person</span></a>
+                <a href="/logout" class="icon-link" aria-label="Sair"><span class="material-icons">logout</span></a>
             <% } else { %>
-                <a href="/login" class="icon-link"><span class="material-icons">person</span></a>
+                <a href="/login" class="icon-link" aria-label="Login"><span class="material-icons">person</span></a>
             <% } %>
-            <a href="/favoritos" class="icon-link"><span class="material-icons">favorite_border</span></a>
-            <a href="/cart" class="icon-link"><span class="material-icons">shopping_cart</span></a>
+            <a href="/favoritos" class="icon-link" aria-label="Meus Favoritos"><span class="material-icons">favorite_border</span></a>
+            <a href="/cart" class="icon-link" aria-label="Meu Carrinho"><span class="material-icons">shopping_cart</span></a>
         </div>
     </div>
 </header>
