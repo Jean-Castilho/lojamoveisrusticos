@@ -34,7 +34,14 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
+    // Expor sessão, usuário atual e caminho para as views EJS
     res.locals.session = req.session;
+    res.locals.user = req.session?.user || null;
+    res.locals.currentPath = req.path;
+    // helper para marcar item ativo no menu
+    res.locals.isActive = (pathPrefix) => {
+        try { return req.path === pathPrefix || req.path.startsWith(pathPrefix + '/'); } catch (e) { return false; }
+    };
     next();
 });
 

@@ -9,6 +9,7 @@ import {
     getPixPaymentPage,
     getProfilePage
 } from "../controllers/pageController.js";
+import { isAuthenticated } from "../middleware/roleMiddleware.js";
 
 const router = Router();
 
@@ -16,9 +17,9 @@ router.get("/", getHomePage);
 router.get("/produtos", getProductsPage);
 router.get("/sobre", getAboutPage);
 router.get("/contato", getContactPage);
-router.get("/cart", getCartPage);
-router.get("/favoritos", getFavoritesPage);
+router.get("/cart", isAuthenticated, getCartPage);
+router.get("/favoritos", isAuthenticated, getFavoritesPage);
 router.get("/payment/pix", getPixPaymentPage);
-router.get("/profile", getProfilePage);
+router.get("/profile", isAuthenticated, getProfilePage);
 
 export default router;

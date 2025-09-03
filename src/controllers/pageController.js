@@ -80,7 +80,21 @@ export const getAdminProductsPage = (req, res, next) => {
 
 export const getAdminUsersPage = (req, res, next) => {
     try {
-        res.render("layouts/main", { page: '../pages/admin/users/index' });
+        // tenta buscar usuários do backend para exibir na página
+        (async () => {
+            try {
+                const urlPath = '/admin/users';
+                console.log('[getAdminUsersPage] fetching users from external API', urlPath);
+                const response = await (await import('../utils/apiClient.js')).apiFetch(urlPath, { method: 'GET' });
+                const data = await response.json().catch(() => null);
+                console.log('[getAdminUsersPage] external response', { status: response.status, ok: response.ok, data });
+                const users = response.ok ? (data.users || data) : [];
+                res.render("layouts/main", { page: '../pages/admin/users/index', users });
+            } catch (err) {
+                console.warn('Could not fetch users list:', err.message);
+                res.render("layouts/main", { page: '../pages/admin/users/index', users: [] });
+            }
+        })();
     } catch (error) {
         next(error);
     }

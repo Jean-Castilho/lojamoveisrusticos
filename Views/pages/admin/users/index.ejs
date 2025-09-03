@@ -2,6 +2,72 @@
     <h1 class="admin-section-title">Gerenciar Usuários</h1>
     <div class="admin-section-content">
         <p>Aqui você pode visualizar, editar ou remover usuários do sistema.</p>
-        <!-- Placeholder for user management table/list -->
+
+        <% if (!users || users.length === 0) { %>
+            <p>Nenhum usuário encontrado.</p>
+        <% } else { %>
+            <table class="admin-users-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(u => { %>
+                        <tr data-user-id="<%= u._id %>">
+                            <td><%= u.name %></td>
+                            <td><%= u.email?.endereço || u.email || '' %></td>
+                            <td class="role-cell"><%= u.role || 'customer' %></td>
+                            <td>
+                                <select class="role-select">
+                                    <option value="customer" <%= (u.role==='customer')? 'selected' : '' %>>Cliente</option>
+                                    <option value="staff" <%= (u.role==='staff')? 'selected' : '' %>>Funcionário</option>
+                                    <option value="admin" <%= (u.role==='admin')? 'selected' : '' %>>Administrador</option>
+                                </select>
+                                <button class="btn btn-primary btn-update-role">Salvar</button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+
     </div>
+
+    <script>
+        document.querySelectorAll('.btn-update-role').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                const tr = e.target.closest('tr');
+                const userId = tr.dataset.userId;
+                const select = tr.querySelector('.role-select');
+                const role = select.value;
+
+                try {
+                        // Atenção: inclui credentials para garantir envio do cookie de sessão
+                        // Se sua API externa exigir um token CSRF, envie-o no header abaixo:
+                        // headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': '<token>' }
+                        const res = await fetch(`/admin/users/${userId}/role`, {
+                            method: 'PUT',
+                            credentials: 'same-origin',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ role })
+                        });
+                    const data = await res.json();
+                        console.log('[admin/users] response', { status: res.status, ok: res.ok, data });
+                    if (res.ok) {
+                        tr.querySelector('.role-cell').textContent = role;
+                        alert('Role atualizado');
+                    } else {
+                        alert('Erro: ' + (data.message || res.statusText));
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert('Erro ao comunicar com o servidor');
+                }
+            });
+        });
+    </script>
 </div>

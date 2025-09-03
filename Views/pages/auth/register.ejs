@@ -50,9 +50,13 @@
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
+            console.log(data);
+            console.log(form.action);
+
             try {
-                const response = await fetch('/api/auth/send-otp', {
+                const response = await fetch(form.action, {
                     method: 'POST',
+                    credentials: 'same-origin',
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -60,7 +64,8 @@
                 });
 
                 const result = await response.json();
-
+                console.log(result);
+                
                 if (response.ok) {
                     showPopup(result.message);
                     // Hide the popup and redirect after a short delay

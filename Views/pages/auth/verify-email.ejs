@@ -1,6 +1,6 @@
 
 <div class="verificacao-container">
-    <form class="verificacao-form" action="/api/auth/verify-and-register" method="post">
+    <form class="verificacao-form" action="/verify-otp-code" method="post">
         <h2>Verificação do email</h2>
         <p>Enviamos um código de verificação para o seu email. Por favor, insira o código abaixo.</p>
         
@@ -46,6 +46,7 @@
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
+                    credentials: 'same-origin',
                     headers: {
                         'Content-Type': 'application/json'
                     },
